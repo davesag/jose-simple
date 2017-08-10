@@ -2,18 +2,23 @@
 
 Sound encryption ought to be simple, and widespread.
 
-Jose-Simple provides a very simple mechaism for encrypting and decrypting data using the JOSE (JSON Object Signing and Encryption) standard.
+Jose-Simple allows the encryption and decryption of data using the JOSE (JSON Object Signing and Encryption) standard.
 
 It depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 
 Requires Node 8 or better.
+
+## Installation
+
+    npm installl jose-simple
 
 ## Useage
 
     const jose = require('jose-simple')
     // You need a private / public JWE key pair.
     // Either load them from `.pem` files, create them, or somehow acquire them.
-    // see unit tests for a simple example.
+
+    // TODO: see unit tests for a simple example.
 
     const { encrypt, decrypt } = jose(privateKey, publicKey)
   
