@@ -8,6 +8,10 @@ It depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 
 Requires Node 8 or better.
 
+## Installation
+
+    npm installl jose-simple
+
 ## Useage
 
     const jose = require('jose-simple')
