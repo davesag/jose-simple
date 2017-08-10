@@ -1,4 +1,4 @@
-# How to contribute to the JOSE project
+# How to contribute to the jose-simple project
 
 ## Development Environment
 
