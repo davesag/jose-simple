@@ -1,0 +1,46 @@
+{
+  "name": "jose-simple",
+  "version": "1.0.0",
+  "description": "A very simple JOSE encryption/decription utility",
+  "engines": {
+    "node": ">=8.2.1",
+    "npm": "^5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:unit": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "jose",
+    "crypto",
+    "tokens"
+  ],
+  "author": "Dave Sag <davesag@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davesag/jose-simple.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davesag/jose-simple/issues"
+  },
+  "homepage": "https://github.com/davesag/jose-simple#readme",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "faker": "^4.1.0",
+    "generate-rsa-keypair": "^0.1.1",
+    "mocha": "^3.5.0",
+    "sinon": "^2.4.1",
+    "sinon-chai": "^2.12.0",
+    "sinon-stub-promise": "^4.0.0"
+  },
+  "dependencies": {
+    "node-jose": "^0.9.4"
+  }
+}
