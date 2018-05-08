@@ -1,5 +1,7 @@
 ## jose-simple
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/davesag/jose-simple.svg)](https://greenkeeper.io/)
+
 Sound encryption ought to be simple, and widespread.
 
 Jose-Simple allows the encryption and decryption of data using the JOSE (JSON Object Signing and Encryption) standard.
