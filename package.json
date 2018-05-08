@@ -1,22 +1,41 @@
 {
   "name": "jose-simple",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A very simple JOSE encryption/decription utility",
   "engines": {
-    "node": ">=8.2.1",
-    "npm": "^5"
+    "node": "9.11.1",
+    "npm": "5.8.0"
   },
   "main": "index.js",
   "scripts": {
     "test": "npm run test:unit",
-    "test:unit": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js",
-    "lint": "eslint ."
+    "test:unit":
+      "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js",
+    "eslint-check":
+      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "lint": "eslint .",
+    "precommit": "lint-staged",
+    "prettier": "prettier --single-quote --no-semi --write '**/*.{js,json}'",
+    "test:unit:cov":
+      "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs nyc mocha --require ./test/unit/test_helper.js"
   },
-  "keywords": [
-    "jose",
-    "crypto",
-    "tokens"
-  ],
+  "lint-staged": {
+    "**/*.{js,json}": ["prettier --single-quote --no-semi --write", "git add"]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "include": ["src/**/*.js"],
+    "exclude": [],
+    "reporter": ["lcov", "text"],
+    "all": true,
+    "cache": true
+  },
+  "keywords": ["jose", "crypto", "tokens"],
   "author": "Dave Sag <davesag@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -28,19 +47,32 @@
   },
   "homepage": "https://github.com/davesag/jose-simple#readme",
   "devDependencies": {
-    "chai": "^4.1.0",
+    "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^4.3.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.8.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-mocha": "^5.0.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.1.0",
     "faker": "^4.1.0",
     "generate-rsa-keypair": "^0.1.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
     "mocha": "^5.1.1",
-    "sinon": "^5.0.7",
+    "nyc": "^11.7.1",
+    "prettier": "^1.12.1",
+    "sinon": "^4.5.0",
     "sinon-chai": "^3.0.0",
     "sinon-stub-promise": "^4.0.0"
   },
   "dependencies": {
     "node-jose": "^0.11.0"
+  },
+  "greenkeeper": {
+    "ignore": ["sinon", "eslint-config-standard"]
   }
 }
