@@ -5,7 +5,7 @@ const { encode, decode } = require('../../../src/utils/base64')
 
 describe('base64', () => {
   describe('encode', () => {
-    describe('given a string', () => {
+    context('given a string', () => {
       const raw = faker.lorem.words()
       const original = `${raw}`
 
@@ -15,7 +15,7 @@ describe('base64', () => {
       })
     })
 
-    describe('given a buffer', () => {
+    context('given a buffer', () => {
       const raw = Buffer.from(faker.lorem.words())
 
       it('encodes', () => {
@@ -23,7 +23,7 @@ describe('base64', () => {
       })
     })
 
-    describe('given an object', () => {
+    context('given an object', () => {
       const raw = { test: faker.lorem.words() }
 
       it('encodes', () => {
@@ -33,7 +33,7 @@ describe('base64', () => {
   })
 
   describe('decode', () => {
-    describe('given an encoded string', () => {
+    context('given an encoded string', () => {
       const raw = {
         test: 'this is a test'
       }
@@ -43,6 +43,17 @@ describe('base64', () => {
       it('decodes without altering the original string', () => {
         expect(decode(encoded)).to.eql(raw)
         expect(encoded).to.equal(original)
+      })
+    })
+
+    context('given any old string', () => {
+      const raw = 'not a json string'
+      const encoded = encode(raw)
+      const original = `${encoded}`
+
+      it('decodes without altering the original string', () => {
+        expect(decode(encoded)).to.eql(raw)
+        expect(encoded).to.equal(encoded)
       })
     })
   })
