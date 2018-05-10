@@ -10,10 +10,6 @@ It depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 
 Requires Node 8 or better.
 
-Note the devDependency [`generate-rsa-keypair`](https://github.com/LinusU/node-generate-rsa-keypair) does not install under Node 10.
-
-See https://github.com/LinusU/node-generate-rsa-keypair/issues/4 for more.
-
 * `develop` - [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple)
 * `master` - [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple)
 
@@ -49,7 +45,7 @@ See https://github.com/LinusU/node-generate-rsa-keypair/issues/4 for more.
 
 ### Prerequisites
 
-* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 9.11.1`
+* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.1.0`
 
 ### Test it
 
