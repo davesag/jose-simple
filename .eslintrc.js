@@ -1,10 +1,14 @@
 module.exports = {
-  extends: "airbnb-base",
+  extends: ['standard', 'prettier', 'prettier/standard'],
+  plugins: ['prettier', 'standard', 'mocha'],
+  parserOptions: {
+    sourceType: 'module'
+  },
+  env: {
+    es6: true,
+    node: true
+  },
   rules: {
-    semi: [2, 'never'],
-    'comma-dangle': [2, 'never'],
-    'no-multi-spaces': 0,
-    'key-spacing': 0
-    // 'no-console': 0
+    'prettier/prettier': ['error', { singleQuote: true, semi: false }]
   }
 }
