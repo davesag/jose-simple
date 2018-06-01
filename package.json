@@ -69,7 +69,7 @@
     "sinon-chai": "^3.0.0"
   },
   "dependencies": {
-    "node-jose": "^0.11.0"
+    "node-jose": "^1.0.0"
   },
   "greenkeeper": {
     "ignore": ["eslint-config-standard"]
