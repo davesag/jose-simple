@@ -1,10 +1,10 @@
 {
   "name": "jose-simple",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A very simple JOSE encryption/decription utility",
   "engines": {
-    "node": "10.3.0",
-    "npm": "6.1.0"
+    "node": "10.8.0",
+    "npm": "6.3.0"
   },
   "main": "index.js",
   "scripts": {
