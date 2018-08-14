@@ -8,10 +8,12 @@ Jose-Simple allows the encryption and decryption of data using the JOSE (JSON Ob
 
 It depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 
-Requires Node 8.11.2 (LTS) or better. Works fine under Node 10+
+Requires Node 8.11.3 (LTS) or better. Works fine under Node 10+
 
-* `develop` - [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple)
-* `master` - [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple)
+| Branch | Status | Coverage | Comment |
+| ------ | ------ | -------- | ------- |
+| `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Work in progress |
+| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Latest release |
 
 ## Installation
 
@@ -45,7 +47,7 @@ Requires Node 8.11.2 (LTS) or better. Works fine under Node 10+
 
 ### Prerequisites
 
-* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.3.0`
+* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.8.0`
 
 ### Test it
 
