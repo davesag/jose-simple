@@ -8,7 +8,7 @@ Jose-Simple allows the encryption and decryption of data using the JOSE (JSON Ob
 
 It depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 
-Requires Node 8.11.3 (LTS) or better. Works fine under Node 10+
+Requires Node 8.11.4 (LTS) or better. Works fine under Node 10+
 
 | Branch | Status | Coverage | Comment |
 | ------ | ------ | -------- | ------- |
@@ -47,7 +47,7 @@ Requires Node 8.11.3 (LTS) or better. Works fine under Node 10+
 
 ### Prerequisites
 
-* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.8.0`
+* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.9.0`
 
 ### Test it
 
