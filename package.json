@@ -11,7 +11,6 @@
     "test:unit": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "lint": "eslint .",
-    "precommit": "lint-staged",
     "prettier": "prettier --single-quote --no-semi --write '**/*.{js,json}'",
     "test:unit:cov": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs nyc mocha --require ./test/unit/test_helper.js"
   },
@@ -42,7 +41,8 @@
   "keywords": [
     "jose",
     "crypto",
-    "tokens"
+    "tokens",
+    "jwt"
   ],
   "author": "Dave Sag <davesag@gmail.com>",
   "license": "MIT",
@@ -55,25 +55,25 @@
   },
   "homepage": "https://github.com/davesag/jose-simple#readme",
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^5.6.0",
-    "eslint-config-prettier": "^3.0.1",
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-mocha": "^5.2.0",
     "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "faker": "^4.1.0",
     "generate-rsa-keypair": "^0.1.2",
-    "husky": "^0.14.3",
+    "husky": "^1.1.1",
     "lint-staged": "^7.3.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "prettier": "^1.14.3",
-    "sinon": "^6.3.4",
+    "sinon": "^6.3.5",
     "sinon-chai": "^3.2.0"
   },
   "dependencies": {
@@ -81,5 +81,10 @@
   },
   "greenkeeper": {
     "ignore": []
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
