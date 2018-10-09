@@ -11,7 +11,6 @@
     "test:unit": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "lint": "eslint .",
-    "precommit": "lint-staged",
     "prettier": "prettier --single-quote --no-semi --write '**/*.{js,json}'",
     "test:unit:cov": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs nyc mocha --require ./test/unit/test_helper.js"
   },
@@ -81,5 +80,10 @@
   },
   "greenkeeper": {
     "ignore": []
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
