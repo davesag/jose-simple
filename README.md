@@ -47,7 +47,7 @@ Requires Node 8.12.0 (LTS) or better. Works fine under Node 10+
 
 ### Prerequisites
 
-* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.10.0`
+* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.11.0`
 
 ### Test it
 
