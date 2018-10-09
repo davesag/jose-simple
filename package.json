@@ -41,7 +41,8 @@
   "keywords": [
     "jose",
     "crypto",
-    "tokens"
+    "tokens",
+    "jwt"
   ],
   "author": "Dave Sag <davesag@gmail.com>",
   "license": "MIT",
