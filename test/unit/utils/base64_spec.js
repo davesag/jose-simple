@@ -53,7 +53,7 @@ describe('base64', () => {
 
       it('decodes without altering the original string', () => {
         expect(decode(encoded)).to.eql(raw)
-        expect(encoded).to.equal(encoded)
+        expect(encoded).to.equal(original)
       })
     })
   })

@@ -8,7 +8,8 @@ Jose-Simple allows the encryption and decryption of data using the JOSE (JSON Ob
 
 It depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 
-Requires Node 8.12.0 (LTS) or better. Works fine under Node 10+
+**Requires Node 10.14.1 (LTS) or better** if you want to run the tests.
+Works fine under Node 11.3+, and might run under versions of node going back to 8.x but no further.
 
 | Branch | Status | Coverage | Comment |
 | ------ | ------ | -------- | ------- |
@@ -24,6 +25,8 @@ Requires Node 8.12.0 (LTS) or better. Works fine under Node 10+
     const jose = require('jose-simple')
     // You need a private / public JWE key pair.
     // Either load them from `.pem` files, create them, or somehow acquire them.
+    // The private key must not have a passphrase or cypher!
+    // see https://github.com/cisco/node-jose/issues/69#issuecomment-236133179
 
     // TODO: see unit tests for a simple example.
 
@@ -43,15 +46,19 @@ Requires Node 8.12.0 (LTS) or better. Works fine under Node 10+
       })
     })
 
+## Issues
+
+Cisco's [node-jose](https://github.com/cisco/node-jose/issues) library has issues with **private keys with a passphrase** and cypher set. See [add support for passphrase in pem certificate](https://github.com/cisco/node-jose/issues/234).
+
 ## Development
 
 ### Prerequisites
 
-* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.11.0`
+* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.14.1` or better.
 
 ### Test it
 
-* `npm test` — runs the unit tests.  The tests give an example of how to create key pairs too.
+* `npm test` — runs the unit tests.  The tests give an example of how to create key pairs too. (Leverages [the new crypto.generateKeyPair](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html#crypto_crypto_generatekeypair_type_options_callback) libraries and so no-longer needs a 3rd party keypair generator.)
 
 ### Lint it
 

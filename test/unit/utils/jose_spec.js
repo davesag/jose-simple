@@ -1,14 +1,21 @@
 const { expect } = require('chai')
 const faker = require('faker')
-const keygen = require('generate-rsa-keypair')
+const keygen = require('./keygen.js')
 const { JWK } = require('node-jose')
-
-const makeKey = pem => JWK.asKey(pem, 'pem')
 
 const jose = require('../../../src/utils/jose')
 
+const makeKey = async pem => JWK.asKey(pem, 'pem')
+
 describe('jose', () => {
-  const keys = keygen()
+  let j
+
+  before(async () => {
+    const keys = await keygen()
+    const privateKey = await makeKey(keys.privateKey)
+    const publicKey = await makeKey(keys.publicKey)
+    j = jose(privateKey, publicKey)
+  })
 
   context('happy path', () => {
     const raw = {
@@ -23,11 +30,6 @@ describe('jose', () => {
     let decrypted
 
     before(async () => {
-      const jwKeys = await Promise.all([
-        makeKey(keys.public),
-        makeKey(keys.private)
-      ])
-      const j = jose(jwKeys[1], jwKeys[0])
       encrypted = await j.encrypt(raw)
       decrypted = await j.decrypt(encrypted)
     })
@@ -48,16 +50,6 @@ describe('jose', () => {
   })
 
   context('unhappy path', () => {
-    let j
-
-    before(async () => {
-      const jwKeys = await Promise.all([
-        makeKey(keys.public),
-        makeKey(keys.private)
-      ])
-      j = jose(jwKeys[1], jwKeys[0])
-    })
-
     describe('encrypt', () => {
       context('given no input', () => {
         it('rejects', () => expect(j.encrypt()).to.be.rejected)
