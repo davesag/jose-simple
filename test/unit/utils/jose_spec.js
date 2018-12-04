@@ -8,16 +8,17 @@ const jose = require('../../../src/utils/jose')
 const makeKey = async pem => JWK.asKey(pem, 'pem')
 
 describe('jose', () => {
+  let privateKey
+  let publicKey
   let j
 
   before(async () => {
     const keys = await keygen()
-    const privateKey = await makeKey(keys.privateKey)
-    const publicKey = await makeKey(keys.publicKey)
-    j = jose(privateKey, publicKey)
+    privateKey = await makeKey(keys.privateKey)
+    publicKey = await makeKey(keys.publicKey)
   })
 
-  context('happy path', () => {
+  const doTests = () => {
     const raw = {
       iss: 'test',
       exp: faker.date.future().getTime(),
@@ -26,40 +27,58 @@ describe('jose', () => {
       }
     }
 
-    let encrypted
-    let decrypted
+    context('happy path', () => {
+      let encrypted
+      let decrypted
 
-    before(async () => {
-      encrypted = await j.encrypt(raw)
-      decrypted = await j.decrypt(encrypted)
+      before(async () => {
+        encrypted = await j.encrypt(raw)
+        decrypted = await j.decrypt(encrypted)
+      })
+
+      it('encrypted', () => {
+        expect(encrypted).to.exist
+        expect(encrypted).to.be.a('string')
+      })
+
+      it('decrypted', () => {
+        expect(decrypted).to.exist
+        expect(decrypted).to.be.an('object')
+      })
+
+      it('decrypted version of encrypted is raw', () => {
+        expect(decrypted).to.eql(raw)
+      })
     })
 
-    it('encrypted', () => {
-      expect(encrypted).to.exist
-      expect(encrypted).to.be.a('string')
+    context('unhappy path', () => {
+      describe('encrypt', () => {
+        context('given no input', () => {
+          it('rejects', () => expect(j.encrypt()).to.be.rejected)
+        })
+      })
+
+      describe('decrypt', () => {
+        context('given no input', () => {
+          it('rejects', () => expect(j.decrypt()).to.be.rejected)
+        })
+      })
+    })
+  }
+
+  context('without options', () => {
+    before(() => {
+      j = jose(privateKey, publicKey)
     })
 
-    it('decrypted', () => {
-      expect(decrypted).to.exist
-      expect(decrypted).to.be.an('object')
-    })
-
-    it('decrypted version of encrypted is raw', () => {
-      expect(decrypted).to.eql(raw)
-    })
+    doTests()
   })
 
-  context('unhappy path', () => {
-    describe('encrypt', () => {
-      context('given no input', () => {
-        it('rejects', () => expect(j.encrypt()).to.be.rejected)
-      })
+  context('with options', () => {
+    before(() => {
+      j = jose(privateKey, publicKey, { format: 'compact' })
     })
 
-    describe('decrypt', () => {
-      context('given no input', () => {
-        it('rejects', () => expect(j.decrypt()).to.be.rejected)
-      })
-    })
+    doTests()
   })
 })
