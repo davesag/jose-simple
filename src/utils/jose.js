@@ -1,11 +1,11 @@
 const { JWE } = require('node-jose')
 const { encode, decode } = require('./base64')
 
-const jose = (privateKey, publicKey) => {
+const jose = (privateKey, publicKey, options = {}) => {
   const encrypt = async raw => {
     if (!raw) throw new Error('Missing raw data.')
     const buffer = Buffer.from(JSON.stringify(raw))
-    const encrypted = await JWE.createEncrypt(publicKey)
+    const encrypted = await JWE.createEncrypt(options, publicKey)
       .update(buffer)
       .final()
     return encode(encrypted)

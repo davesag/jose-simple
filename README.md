@@ -46,6 +46,19 @@ Works fine under Node 11.3+, and might run under versions of node going back to 
       })
     })
 
+### Options
+
+See [encrypt.js#L661](https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L661)
+
+You can add `encrypt` options as follows:
+
+    const { encrypt, decrypt } = jose(privateKey, publicKey, {
+      format: 'compact'
+      protect: true,
+      // or any of the encrypt options than can be passed to JWE.createEncrypt.
+      // https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L661
+    })
+
 ## Issues
 
 Cisco's [node-jose](https://github.com/cisco/node-jose/issues) library has issues with **private keys with a passphrase** and cypher set. See [add support for passphrase in pem certificate](https://github.com/cisco/node-jose/issues/234).
