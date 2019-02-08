@@ -1,19 +1,23 @@
 {
   "name": "jose-simple",
   "version": "1.2.0",
-  "description": "A very simple JOSE encryption/decription utility",
+  "description": "Simplifies JOSE encryption and decription.",
   "engines": {
-    "node": ">= 10.14.1",
-    "npm": ">= 4.1.0"
+    "node": ">= 10.12.0"
   },
+  "files": [
+    "/package*.json",
+    "/CONTRIBUTING.md",
+    "/src"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "npm run test:unit",
-    "test:unit": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js",
+    "test:unit": "find ./test/unit -name '*.test.js' | NODE_ENV=test xargs mocha --require ./test/unit/testHelper.js",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "lint": "eslint .",
     "prettier": "prettier --single-quote --no-semi --write '**/*.{js,json}'",
-    "test:unit:cov": "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs nyc mocha --require ./test/unit/test_helper.js"
+    "test:unit:cov": "find ./test/unit -name '*.test.js' | NODE_ENV=test xargs nyc mocha --require ./test/unit/testHelper.js"
   },
   "lint-staged": {
     "**/*.{js,json}": [
