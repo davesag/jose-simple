@@ -4,12 +4,14 @@
 
 Sound encryption ought to be simple, and widespread.
 
-Jose-Simple allows the encryption and decryption of data using the JOSE (JSON Object Signing and Encryption) standard.
+Jose-Simple simplifies the encryption and decryption of data using the JOSE (JSON Object Signing and Encryption) standard.
 
-It depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
+## Caveats
 
-**Requires Node 10.14.1 (LTS) or better** if you want to run the tests.
-Works fine under Node 11.3+, and might run under versions of node going back to 8.x but no further.
+* The project depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
+* `node-jose` [does not allow you to use private keys with passwords](https://github.com/cisco/node-jose/issues/69#issuecomment-236133179), and [they have no intention of changing that](https://github.com/cisco/node-jose/issues/234#issuecomment-457615794).
+* **Requires Node 10.12.0 or better** if you want to run the tests.
+Works fine under Node 11.9+, and might run under versions of node going back to 8.x but no further.
 
 | Branch | Status | Coverage | Comment |
 | ------ | ------ | -------- | ------- |
@@ -22,29 +24,31 @@ Works fine under Node 11.3+, and might run under versions of node going back to 
 
 ## Useage
 
-    const jose = require('jose-simple')
-    // You need a private / public JWE key pair.
-    // Either load them from `.pem` files, create them, or somehow acquire them.
-    // The private key must not have a passphrase or cypher!
-    // see https://github.com/cisco/node-jose/issues/69#issuecomment-236133179
+```
+const jose = require('jose-simple')
+// You need a private / public JWE key pair.
+// Either load them from `.pem` files, create them, or somehow acquire them.
+// The private key must not have a passphrase or cypher!
+// see https://github.com/cisco/node-jose/issues/69#issuecomment-236133179
+// see also https://github.com/cisco/node-jose/issues/234#issuecomment-457615794
+// see unit tests for a simple example.
 
-    // TODO: see unit tests for a simple example.
+const { encrypt, decrypt } = jose(privateKey, publicKey)
 
-    const { encrypt, decrypt } = jose(privateKey, publicKey)
+const someData = {
+  some: 'amazing data',
+  you: 'want to keep hidden',
+  from: 'prying eyes'
+}
 
-    const someData = {
-      some: 'amazing data',
-      you: 'want to keep hidden',
-      from: 'prying eyes'
-    }
-
-    encrypt(someData).then((encrypted) => {
-      console.log('encrypted', encrypted)
-      decrypt(encrypted).then((decrypted) => {
-        console.log('decrypted', decrypted)
-        // decrypted will be the same as someData
-      })
-    })
+encrypt(someData).then((encrypted) => {
+  console.log('encrypted', encrypted)
+  decrypt(encrypted).then((decrypted) => {
+    console.log('decrypted', decrypted)
+    // decrypted will be the same as someData
+  })
+})
+```
 
 ### Options
 
@@ -52,26 +56,24 @@ See [encrypt.js#L661](https://github.com/cisco/node-jose/blob/master/lib/jwe/enc
 
 You can add `encrypt` options as follows:
 
-    const { encrypt, decrypt } = jose(privateKey, publicKey, {
-      format: 'compact'
-      protect: true,
-      // or any of the encrypt options than can be passed to JWE.createEncrypt.
-      // https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L661
-    })
-
-## Issues
-
-Cisco's [node-jose](https://github.com/cisco/node-jose/issues) library has issues with **private keys with a passphrase** and cypher set. See [add support for passphrase in pem certificate](https://github.com/cisco/node-jose/issues/234).
+```
+const { encrypt, decrypt } = jose(privateKey, publicKey, {
+  format: 'compact'
+  protect: true,
+  // or any of the encrypt options than can be passed to JWE.createEncrypt.
+  // https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L661
+})
+```
 
 ## Development
 
 ### Prerequisites
 
-* [NodeJS](https://nodejs.org) — `brew install nvm` then `nvm use 10.14.1` or better.
+* [NodeJS](https://nodejs.org) — Version `10.12.0` or better is needed to run the tests as they rely on `crypto.generateKeyPair`.
 
 ### Test it
 
-* `npm test` — runs the unit tests.  The tests give an example of how to create key pairs too. (Leverages [the new crypto.generateKeyPair](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html#crypto_crypto_generatekeypair_type_options_callback) libraries and so no-longer needs a 3rd party keypair generator.)
+* `npm test` — runs the unit tests.  The tests give an example of how to create key pairs too. (Leverages the [`crypto.generateKeyPair`](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html#crypto_crypto_generatekeypair_type_options_callback) libraries introduced in Node `10.12.0`.)
 
 ### Lint it
 
