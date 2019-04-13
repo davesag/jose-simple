@@ -8,26 +8,29 @@ describe('base64', () => {
     context('given a string', () => {
       const raw = faker.lorem.words()
       const original = `${raw}`
+      const expected = Buffer.from(raw).toString('base64')
 
       it('encodes without altering the original string', () => {
-        expect(encode(raw)).to.exist
+        expect(encode(raw)).to.equal(expected)
         expect(raw).to.equal(original)
       })
     })
 
     context('given a buffer', () => {
       const raw = Buffer.from(faker.lorem.words())
+      const expected = raw.toString('base64')
 
       it('encodes', () => {
-        expect(encode(raw)).to.exist
+        expect(encode(raw)).to.equal(expected)
       })
     })
 
     context('given an object', () => {
       const raw = { test: faker.lorem.words() }
+      const expected = Buffer.from(JSON.stringify(raw)).toString('base64')
 
       it('encodes', () => {
-        expect(encode(raw)).to.exist
+        expect(encode(raw)).to.equal(expected)
       })
     })
   })

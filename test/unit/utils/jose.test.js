@@ -54,13 +54,15 @@ describe('jose', () => {
     context('unhappy path', () => {
       describe('encrypt', () => {
         context('given no input', () => {
-          it('rejects', () => expect(j.encrypt()).to.be.rejected)
+          it('rejects', () =>
+            expect(j.encrypt()).to.be.rejectedWith('Missing raw data.'))
         })
       })
 
       describe('decrypt', () => {
         context('given no input', () => {
-          it('rejects', () => expect(j.decrypt()).to.be.rejected)
+          it('rejects', () =>
+            expect(j.decrypt()).to.be.rejectedWith('Missing encrypted data.'))
         })
       })
     })
