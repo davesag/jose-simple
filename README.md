@@ -1,24 +1,16 @@
 ## jose-simple
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/davesag/jose-simple.svg)](https://greenkeeper.io/)
-
-Sound encryption ought to be simple, and widespread.
+> Proper encryption ought to be simple, and widespread.
 
 Jose-Simple simplifies the encryption and decryption of data using the JOSE (JSON Object Signing and Encryption) standard.
+
+[![NPM](https://nodei.co/npm/jose-simple.png)](https://nodei.co/npm/jose-simple/)
 
 ## Caveats
 
 - The project depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 - `node-jose` [does not allow you to use private keys with passwords](https://github.com/cisco/node-jose/issues/69#issuecomment-236133179), and [they have no intention of changing that](https://github.com/cisco/node-jose/issues/234#issuecomment-457615794).
-- **Requires Node 10.12.0 or better** if you want to run the tests. Works fine under Node 11.14+, and might run under versions of node going back to 8.x but no further.
-
-<!-- prettier-ignore -->
-| Branch | Status | Coverage | Comment |
-| ------ | ------ | -------- | ------- |
-| `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Work in progress |
-| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Latest release |
-
-[![NPM](https://nodei.co/npm/jose-simple.png)](https://nodei.co/npm/jose-simple/)
+- **Requires Node 10.12.0 or better** if you want to run the tests. Works fine under Node 12.6+, and might run under versions of node going back to 8.x but no further.
 
 ## Installation
 
@@ -70,6 +62,14 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
 ```
 
 ## Development
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/davesag/jose-simple.svg)](https://greenkeeper.io/)
+
+<!-- prettier-ignore -->
+| Branch | Status | Coverage | Comment |
+| ------ | ------ | -------- | ------- |
+| `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Work in progress |
+| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Latest release |
 
 ### Prerequisites
 
