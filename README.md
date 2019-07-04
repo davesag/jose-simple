@@ -18,6 +18,10 @@ Jose-Simple simplifies the encryption and decryption of data using the JOSE (JSO
 npm install jose-simple
 ```
 
+## Links
+
+- [Securing Tokens with help from JOSE](https://codeburst.io/securing-tokens-with-help-from-jose-33d8c31835a1).
+
 ## Useage
 
 ```js
