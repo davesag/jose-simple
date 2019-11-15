@@ -1,6 +1,6 @@
 {
   "name": "jose-simple",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Simplifies JOSE encryption and decryption.",
   "author": "Dave Sag <davesag@gmail.com>",
   "type": "commonjs",
