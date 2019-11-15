@@ -14,9 +14,7 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - dependencies-{{ checksum "package.json" }}
 
       - run:
           name: Install global packages
@@ -31,7 +29,7 @@ jobs:
           command: npm install
 
       - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
 
@@ -42,6 +40,11 @@ jobs:
       - run:
           name: All Unit Tests with Code Coverage
           command: npm run test:unit:cov
+
+      # Far too flakey to run on CI
+      # - run:
+      #     name: Mutation Tests
+      #     command: npm run test:mutants
 
       - run:
           name: Push any lockfile changes

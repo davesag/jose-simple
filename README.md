@@ -1,34 +1,30 @@
 ## jose-simple
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/davesag/jose-simple.svg)](https://greenkeeper.io/)
-
-Sound encryption ought to be simple, and widespread.
+> Proper encryption ought to be simple, and widespread.
 
 Jose-Simple simplifies the encryption and decryption of data using the JOSE (JSON Object Signing and Encryption) standard.
+
+[![NPM](https://nodei.co/npm/jose-simple.png)](https://nodei.co/npm/jose-simple/)
 
 ## Caveats
 
 - The project depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 - `node-jose` [does not allow you to use private keys with passwords](https://github.com/cisco/node-jose/issues/69#issuecomment-236133179), and [they have no intention of changing that](https://github.com/cisco/node-jose/issues/234#issuecomment-457615794).
-- **Requires Node 10.12.0 or better** if you want to run the tests. Works fine under Node 11.13+, and might run under versions of node going back to 8.x but no further.
-
-<!-- prettier-ignore -->
-| Branch | Status | Coverage | Comment |
-| ------ | ------ | -------- | ------- |
-| `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Work in progress |
-| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Latest release |
-
-[![NPM](https://nodei.co/npm/jose-simple.png)](https://nodei.co/npm/jose-simple/)
+- **Requires Node 10.12.0 or better** if you want to run the tests. Works fine under Node 12.6+, and might run under versions of node going back to 8.x but no further.
 
 ## Installation
 
-```
+```sh
 npm install jose-simple
 ```
 
+## Links
+
+- [Securing Tokens with help from JOSE](https://codeburst.io/securing-tokens-with-help-from-jose-33d8c31835a1).
+
 ## Useage
 
-```
+```js
 const jose = require('jose-simple')
 // You need a private / public JWE key pair.
 // Either load them from `.pem` files, create them, or somehow acquire them.
@@ -45,9 +41,9 @@ const someData = {
   from: 'prying eyes'
 }
 
-encrypt(someData).then((encrypted) => {
+encrypt(someData).then(encrypted => {
   console.log('encrypted', encrypted)
-  decrypt(encrypted).then((decrypted) => {
+  decrypt(encrypted).then(decrypted => {
     console.log('decrypted', decrypted)
     // decrypted will be the same as someData
   })
@@ -60,7 +56,7 @@ See [`encrypt.js#L662`](https://github.com/cisco/node-jose/blob/master/lib/jwe/e
 
 You can add `encrypt` options as follows:
 
-```
+```js
 const { encrypt, decrypt } = jose(privateKey, publicKey, {
   format: 'compact'
   protect: true,
@@ -71,6 +67,14 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
 
 ## Development
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/davesag/jose-simple.svg)](https://greenkeeper.io/)
+
+<!-- prettier-ignore -->
+| Branch | Status | Coverage | Comment |
+| ------ | ------ | -------- | ------- |
+| `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Work in progress |
+| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Latest release |
+
 ### Prerequisites
 
 - [NodeJS](https://nodejs.org) — Version `10.12.0` or better is needed to run the tests as they rely on `crypto.generateKeyPair`.
@@ -78,10 +82,12 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
 ### Test it
 
 - `npm test` — runs the unit tests. The tests give an example of how to create key pairs too. (Leverages the [`crypto.generateKeyPair`](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html#crypto_crypto_generatekeypair_type_options_callback) libraries introduced in Node `10.12.0`.)
+- `npm run test:unit:cov` — runs the unit tests with code coverage
+- `npm run test:mutants` — runs the mutation tests
 
 ### Lint it
 
-```
+```sh
 npm run lint
 ```
 
