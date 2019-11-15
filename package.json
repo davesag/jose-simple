@@ -1,16 +1,26 @@
 {
   "name": "jose-simple",
   "version": "1.2.2",
-  "description": "Simplifies JOSE encryption and decription.",
+  "description": "Simplifies JOSE encryption and decryption.",
+  "author": "Dave Sag <davesag@gmail.com>",
+  "type": "commonjs",
+  "license": "MIT",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/davesag"
+  },
   "engines": {
     "node": ">= 8.10.0"
   },
   "files": [
-    "/package*.json",
-    "/CONTRIBUTING.md",
-    "/src"
+    "CONTRIBUTING.md",
+    "src"
   ],
-  "main": "index.js",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint .",
     "prettier": "prettier --write '**/*.{js,json,md}'",
@@ -21,16 +31,15 @@
     "test:mutants": "NODE_ENV=test npx stryker run"
   },
   "keywords": [
-    "jose",
     "crypto",
-    "tokens",
-    "jwt"
+    "jose",
+    "jwt",
+    "security",
+    "tokens"
   ],
-  "author": "Dave Sag <davesag@gmail.com>",
-  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davesag/jose-simple.git"
+    "url": "https://github.com/davesag/jose-simple.git"
   },
   "bugs": {
     "url": "https://github.com/davesag/jose-simple/issues"
@@ -75,6 +84,11 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "nyc": {
     "check-coverage": true,
     "per-file": true,
@@ -92,13 +106,5 @@
     ],
     "all": true,
     "cache": true
-  },
-  "greenkeeper": {
-    "ignore": []
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
