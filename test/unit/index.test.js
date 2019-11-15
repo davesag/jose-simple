@@ -1,6 +1,6 @@
 const { expect } = require('chai')
 
-const jose = require('../../')
+const jose = require('../../src')
 
 describe('index', () => {
   it('exports a function', () => {
