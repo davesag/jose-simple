@@ -71,9 +71,9 @@
     "mocha": "^8.1.1",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
-    "sinon": "^9.0.2",
+    "sinon": "^9.0.3",
     "sinon-chai": "^3.5.0",
-    "snyk": "^1.370.1"
+    "snyk": "^1.373.1"
   },
   "prettier": {
     "semi": false,
