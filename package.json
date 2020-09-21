@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/davesag/jose-simple#readme",
   "dependencies": {
-    "node-jose": "^1.1.4"
+    "node-jose": "^2.0.0"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^3.3.1",
