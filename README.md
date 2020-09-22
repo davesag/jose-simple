@@ -10,7 +10,7 @@ Jose-Simple simplifies the encryption and decryption of data using the JOSE (JSO
 
 - The project depends on [`node-jose`](https://github.com/cisco/node-jose) by Cisco.
 - `node-jose` [does not allow you to use private keys with passwords](https://github.com/cisco/node-jose/issues/69#issuecomment-236133179), and [they have no intention of changing that](https://github.com/cisco/node-jose/issues/234#issuecomment-457615794).
-- **Requires Node 10.12.0 or better** if you want to run the tests. Works fine under Node 12.6+, and might run under versions of node going back to 8.x but no further.
+- **Requires Node 10.12.0 or better** if you want to run the tests. Works fine under Node 12+, and might run under versions of node going back to 8.x but no further.
 
 ## Installation
 
@@ -52,7 +52,7 @@ encrypt(someData).then(encrypted => {
 
 ### Options
 
-See [`encrypt.js#L662`](https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L662)
+See [`encrypt.js#L660-L668`](https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L660-L668)
 
 You can add `encrypt` options as follows:
 
@@ -61,19 +61,17 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
   format: 'compact'
   protect: true,
   // or any of the encrypt options than can be passed to JWE.createEncrypt.
-  // https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L661
+  // https://github.com/cisco/node-jose/blob/master/lib/jwe/encrypt.js#L660-L668
 })
 ```
 
 ## Development
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/davesag/jose-simple.svg)](https://greenkeeper.io/)
-
 <!-- prettier-ignore -->
-| Branch | Status | Coverage | Comment |
-| ------ | ------ | -------- | ------- |
-| `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Work in progress |
-| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | Latest release |
+| Branch | Status | Coverage | Audit | Comment |
+| ------ | ------ | -------- | ----- | ------- |
+| `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/develop/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/develop) | Work in progress |
+| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/master/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/master) | Latest release |
 
 ### Prerequisites
 
