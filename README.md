@@ -75,7 +75,7 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
 
 ### Prerequisites
 
-- [NodeJS](https://nodejs.org) — Version `10.12.0` or better is needed to run the tests as they rely on `crypto.generateKeyPair`.
+- [NodeJS](https://nodejs.org) — Version 15.0.1 or better.
 
 ### Test it
 
