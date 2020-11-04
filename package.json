@@ -10,7 +10,8 @@
     "url": "https://github.com/sponsors/davesag"
   },
   "engines": {
-    "node": ">= 8.10.0"
+    "node": ">= 8.10.0 < 15.x",
+    "npm": ">= 6.5.0 < 7.x"
   },
   "files": [
     "CONTRIBUTING.md",
