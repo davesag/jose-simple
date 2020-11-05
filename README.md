@@ -75,13 +75,12 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
 
 ### Prerequisites
 
-- [NodeJS](htps://nodejs.org), stick to version 14.15.0 for now (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.) The `package-lock.json` file format changed between v6 and v7 of `npm` and npm 7 causes all manner of dramas.
+- [NodeJS](htps://nodejs.org), 15.0.1+ (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.) You must use npm version 7.0.8 or better.
 
 ### Test it
 
 - `npm test` — runs the unit tests. The tests give an example of how to create key pairs too. (Leverages the [`crypto.generateKeyPair`](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html#crypto_crypto_generatekeypair_type_options_callback) libraries introduced in Node `10.12.0`.)
 - `npm run test:unit:cov` — runs the unit tests with code coverage
-- `npm run test:mutants` — runs the mutation tests
 
 ### Lint it
 
