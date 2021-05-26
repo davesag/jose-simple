@@ -71,7 +71,7 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
 | Branch | Status | Coverage | Audit | Comment |
 | ------ | ------ | -------- | ----- | ------- |
 | `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/develop/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/develop) | Work in progress |
-| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/master/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/master) | Latest release |
+| `main` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/main.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/main) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/main/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/main/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/main) | Latest release |
 
 ### Prerequisites
 
