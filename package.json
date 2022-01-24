@@ -49,6 +49,7 @@
     "node-jose": "^2.0.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.2.0",
@@ -59,7 +60,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
-    "faker": "^5.1.0",
     "husky": "^7.0.0",
     "lint-staged": "^12.0.2",
     "mocha": "^9.0.0",

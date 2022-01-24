@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const faker = require('faker')
+const faker = require('@faker-js/faker')
 const keygen = require('./keygen.js')
 const { JWK } = require('node-jose')
 
