@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/davesag/jose-simple#readme",
   "dependencies": {
-    "node-jose": "^2.0.0"
+    "node-jose": "^2.1.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^6.0.0-alpha.3",
