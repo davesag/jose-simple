@@ -22,7 +22,7 @@ npm install jose-simple
 
 - [Securing Tokens with help from JOSE](https://codeburst.io/securing-tokens-with-help-from-jose-33d8c31835a1).
 
-## Useage
+## Usage
 
 ```js
 const jose = require('jose-simple')
