@@ -1,4 +1,4 @@
-## jose-simple
+# jose-simple
 
 > Proper encryption ought to be simple, and widespread.
 
@@ -22,7 +22,7 @@ npm install jose-simple
 
 - [Securing Tokens with help from JOSE](https://codeburst.io/securing-tokens-with-help-from-jose-33d8c31835a1).
 
-## Useage
+## Usage
 
 ```js
 const jose = require('jose-simple')
@@ -71,17 +71,16 @@ const { encrypt, decrypt } = jose(privateKey, publicKey, {
 | Branch | Status | Coverage | Audit | Comment |
 | ------ | ------ | -------- | ----- | ------- |
 | `develop` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/develop) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/develop/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/develop) | Work in progress |
-| `master` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/master) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/master/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/master) | Latest release |
+| `main` | [![CircleCI](https://circleci.com/gh/davesag/jose-simple/tree/main.svg?style=svg)](https://circleci.com/gh/davesag/jose-simple/tree/main) | [![codecov](https://codecov.io/gh/davesag/jose-simple/branch/main/graph/badge.svg)](https://codecov.io/gh/davesag/jose-simple) | [![Vulnerabilities](https://snyk.io/test/github/davesag/jose-simple/main/badge.svg)](https://snyk.io/test/github/davesag/jose-simple/main) | Latest release |
 
 ### Prerequisites
 
-- [NodeJS](https://nodejs.org) — Version `10.12.0` or better is needed to run the tests as they rely on `crypto.generateKeyPair`.
+- [NodeJS](htps://nodejs.org), I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.
 
 ### Test it
 
 - `npm test` — runs the unit tests. The tests give an example of how to create key pairs too. (Leverages the [`crypto.generateKeyPair`](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html#crypto_crypto_generatekeypair_type_options_callback) libraries introduced in Node `10.12.0`.)
 - `npm run test:unit:cov` — runs the unit tests with code coverage
-- `npm run test:mutants` — runs the mutation tests
 
 ### Lint it
 

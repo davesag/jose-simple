@@ -1,5 +1,5 @@
 const { expect } = require('chai')
-const faker = require('faker')
+const { faker } = require('@faker-js/faker')
 const keygen = require('./keygen.js')
 const { JWK } = require('node-jose')
 
@@ -12,7 +12,8 @@ describe('jose', () => {
   let publicKey
   let j
 
-  before(async () => {
+  before(async function () {
+    this.timeout(10000) // this is slow on CI
     const keys = await keygen()
     privateKey = await makeKey(keys.privateKey)
     publicKey = await makeKey(keys.publicKey)
