@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.4.0",
-    "@snyk/protect": "^1.1153.0",
+    "@snyk/protect": "^1.1154.0",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.40.0",
