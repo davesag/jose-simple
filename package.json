@@ -49,8 +49,8 @@
     "node-jose": "^2.2.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.4.0",
-    "@snyk/protect": "^1.1154.0",
+    "@faker-js/faker": "^8.0.1",
+    "@snyk/protect": "^1.1155.0",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.40.0",
